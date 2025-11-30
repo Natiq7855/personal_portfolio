@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header >
+        <nav>
+            <ul>
+                <li><a href="home.html" aria-current="page">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+            </ul>
+        </nav> 
+    </header>
+    <main> 
+        <div class="hero">
+            <h1>Welcome to My Personal Portfolio</h1>
+            <p>Hi! I'm a computer engineering student who builds creative, responsive web experiences and enjoys exploring code and design.</p>
+            <a href="projects.html" class="btn">See Featured Projects</a>
+        </div>
+        <h2>Welcome to the My personal portfolio</h2>
+        <!-- Profile photo: put your real photo at images/me.jpeg -->
+        <div class="intro">
+            <img src="images/me.jpeg" alt="Profile photo of the page owner" class="profile-photo" />
+            <p>Welcome! I’m a computer engineering student passionate about 
+            building creative digital solutions and improving my 
+            technical skills every day. I enjoy working with programming, 
+            web development, and design tools, and I’m always exploring 
+            new ideas that combine technology and creativity. 
+            This portfolio showcases my projects, skills, and the journey
+             I’m taking as I grow in the tech world. Feel free to explore
+              and get to know my work.</p>
+        </div>
+
+        <section class="card">
+            <h3>Featured Projects</h3>
+            <div class="grid">
+                <div class="card project-card">
+                    <img src="images/project1.webp" alt="Project 1">
+                    <h3>Project 1: Logic Gates Demo</h3>
+                    <p>Hands-on work with hardware, logic gates, and a recorded demo video explaining the circuits.</p>
+                    <a href="https://www.youtube.com/watch?v=vdw6Zf9Ze_E&t=3s" class="btn">Watch Video</a>
+                </div>
+                <div class="card project-card">
+                    <div style="height:160px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--primary));display:flex;align-items:center;justify-content:center;color:white;font-weight:700">Hour of Code</div>
+                    <h3>Hour of Code (Coming Soon)</h3>
+                    <p>This project is not ready yet; I may add it in the future. Stay tuned!</p>
+                    <span class="badge">Coming soon</span>
+                    <a class="btn btn--disabled" href="#" aria-disabled="true">Coming soon</a>
+                </div>
+                <div class="card project-card">
+                    <div style="height:160px;border-radius:8px;background:linear-gradient(135deg,var(--primary),#7dd3fc);display:flex;align-items:center;justify-content:center;color:white;font-weight:700">Portfolio</div>
+                    <h3>Personal Portfolio</h3>
+                    <p>Designed and developed the portfolio site that you're viewing now.</p>
+                    <a href="projects.html" class="btn">Explore More</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h3>Key Skills</h3>
+            <div class="skills-grid">
+                <span class="skill-pill">HTML & CSS</span>
+                <span class="skill-pill">JavaScript</span>
+                <span class="skill-pill">Python</span>
+                <span class="skill-pill">Git & GitHub</span>
+                <span class="skill-pill">UI Design</span>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 My Personal Portfolio</p>
+        <a href="https://github.com/Natiq7855"><img src="images/githublogo.png" alt="GitHub" style="width:30px; height:30px;"></a>
+        <a href="https://www.codecademy.com/profiles/Natiq323"><img src="images/codeacademylogo.png" alt="Codecademy" style="width:40px; height:40px;"></a>
+    </footer>
+</body>
+</html>

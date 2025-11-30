@@ -1,0 +1,195 @@
+/* ===== Base / Reset ===== */
+:root{
+	--bg: #ffffff;
+	--surface: #f8fafc;
+	--muted: #6b7280;
+	--text: #0b1220;
+	--primary: #1f6feb;
+	--accent: #0ea5e9;
+	--footer-bg: #fdfdfd;
+	--footer-text: #0b1220;
+	--max-width: 1100px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+/* layout: keep footer at bottom when content is short */
+html, body { box-sizing: border-box; }
+body{
+	display:flex;
+	flex-direction:column;
+	min-height:100vh;
+	margin:0;
+	font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+	background:var(--surface);
+	color:var(--text);
+	line-height:1.55;
+	-webkit-font-smoothing:antialiased;
+}
+
+main{max-width:var(--max-width);margin:2.25rem auto;padding:0 1rem;flex:1}
+
+/* ===== Header/Nav ===== */
+header{
+	position:sticky;
+	top:0;
+	z-index:1000;
+	background:linear-gradient(180deg, rgba(255,255,255,0.75), rgba(255,255,255,0.65));
+	backdrop-filter: blur(4px);
+	border-bottom:1px solid rgba(15,23,42,0.04);
+}
+
+/* container-like behavior for nav, centered */
+nav{
+	max-width:var(--max-width);
+	margin:0 auto;
+	padding:.8rem 1rem;
+	display:flex;
+	align-items:center;
+	gap:1rem;
+	justify-content:center; /* center nav if no site brand */
+}
+
+nav ul{display:flex;gap:1rem;list-style:none;margin:0;padding:0;align-items:center}
+
+nav li{display:inline-block}
+
+nav a{
+	color:var(--text);
+	padding:.5rem .85rem;
+	display:inline-block;
+	text-decoration:none;
+	border-radius:8px;
+	font-weight:600;
+	letter-spacing: 0.2px;
+	transition: background-color .15s ease, transform .08s ease, color .15s ease;
+}
+
+/* Mouse and keyboard focus states */
+nav a:hover{background:rgba(31,111,235,0.08);color:var(--primary);transform:translateY(-1px)}
+nav a:focus{outline:3px solid rgba(14,165,233,0.12);outline-offset:2px}
+
+/* The current page can use aria-current or an .active class */
+nav a[aria-current="page"],nav a.active{background:linear-gradient(90deg,var(--primary),var(--accent));color:white}
+
+/* ===== Footer ===== */
+footer{
+	background:var(--footer-bg);
+	color:var(--footer-text);
+	padding:1.25rem 1rem;
+	border-top:1px solid rgba(255,255,255,0.03);
+}
+
+footer p{margin:0;font-size:.95rem;opacity:.95}
+
+footer a{display:inline-flex;align-items:center;gap:.5rem;text-decoration:none;color:var(--footer-text)}
+footer a img{width:30px;height:30px;border-radius:6px;object-fit:contain;vertical-align:middle}
+
+.footer-inner{max-width:var(--max-width);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+
+/* put social icons in a row */
+.footer-social{display:flex;gap:.75rem;align-items:center}
+
+/* give footer links a subtle hover */
+footer a:hover{opacity:.85;transform:translateY(-1px)}
+
+/* nice small-screen fallback */
+@media (max-width:720px){
+	nav{padding:.6rem 0.8rem;justify-content:center}
+	nav ul{flex-direction:column;gap:0.275rem}
+	nav a{padding:.55rem .8rem;margin:0;white-space:nowrap}
+	.footer-inner{flex-direction:column;align-items:center;text-align:center;padding:0.5rem 0}
+	.footer-social{order:2}
+}
+
+/* ===== Utility & Micro-tweaks ===== */
+.sr-only{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
+
+/* Images inside main content should be responsive */
+img{max-width:100%;height:auto}
+
+/* simple, consistent heading style */
+h1,h2,h3{color:var(--text);margin:0 0 .6rem;font-weight:700}
+h1{font-size:clamp(1.4rem, 2.2rem, 2.2rem)}
+
+/* small utilities for centered blocks */
+.container{max-width:var(--max-width);margin:0 auto;padding:0 1rem}
+
+/* ===== Profile photo / Avatar ===== */
+.profile-photo{
+	/* larger avatar for more presence */
+	width:clamp(140px, 28vw, 380px);
+	height:clamp(140px, 28vw, 380px);
+	border-radius:50%;
+	object-fit:cover;
+	border:6px solid var(--bg);
+	box-shadow:0 18px 35px rgba(2,6,23,0.16);
+	display:block;
+	margin:1.25rem auto 0.8rem auto;
+}
+
+.profile-photo:hover{transform:translateY(-6px) scale(1.04);transition:transform 260ms cubic-bezier(.2,.9,.18,1)}
+
+/* Inline avatar (e.g., beside a short intro) */
+.profile-photo--inline{float:left;margin:0 1.25rem 0.8rem 0;width:clamp(120px, 20vw, 240px);height:clamp(120px, 20vw, 240px)}
+
+/* Slightly different spacing for the about page header */
+.profile-photo--about{margin-bottom:1rem}
+
+@media (max-width:720px){
+	.profile-photo--inline{float:none;margin:0 auto 1rem auto;display:block;width:clamp(84px, 22vw, 160px);height:clamp(84px, 22vw, 160px)}
+}
+
+/* small intro wrapper to contain floats */
+.intro{overflow:auto}
+
+/* ===== Hero & CTA ===== */
+.hero{
+	background: linear-gradient(180deg, rgba(14,165,233,0.04), rgba(31,111,235,0.02));
+	padding:1.6rem 1rem;
+	border-radius:12px;
+	text-align:center;
+	margin:0 0 1.25rem 0;
+}
+.hero h1{font-size:clamp(1.6rem, 3.2vw, 3rem);margin:0 0 .4rem}
+.hero p{margin:0 0 .6rem;color:var(--muted)}
+
+.btn{
+	display:inline-block;
+	background:linear-gradient(90deg,var(--primary),var(--accent));
+	color:white;padding:.6rem 1rem;border-radius:10px;text-decoration:none;font-weight:700;box-shadow:0 8px 20px rgba(31,111,235,0.12);
+}
+.btn:focus{outline:3px solid rgba(14,165,233,0.12);outline-offset:3px}
+
+/* Small visual badge for 'coming soon' */
+.badge{display:inline-block;background:rgba(2,6,23,0.04);color:var(--muted);padding:.25rem .5rem;border-radius:999px;font-size:.85rem;font-weight:700}
+
+/* Disabled CTA for not-yet-available projects */
+.btn--disabled{opacity:.6;pointer-events:none;background:linear-gradient(90deg,#94a3b8,#cbd5e1);color:white}
+.btn--disabled:focus{outline:0}
+
+/* ===== Cards & Grids ===== */
+.card{background:white;border-radius:12px;padding:1rem;border:1px solid rgba(12,24,60,0.04);box-shadow:0 8px 18px rgba(7,9,23,0.035);}
+.card h3{margin:0 0 .5rem}
+.card p{margin:0;color:var(--muted)}
+.card{transition:transform 180ms ease, box-shadow 180ms ease}
+.card:hover{transform:translateY(-6px);box-shadow:0 22px 48px rgba(2,6,23,0.18)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:1rem}
+.project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin-top:1rem}
+.project-card{display:flex;flex-direction:column;gap:.6rem}
+.project-card img{width:100%;border-radius:8px;object-fit:cover;height:160px}
+
+/* ===== Skills grid ===== */
+.skills-grid{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;margin-top:.8rem}
+.skill-pill{background:white;border-radius:100px;padding:.45rem .7rem;border:1px solid rgba(12,24,60,0.04);font-weight:600;color:var(--muted)}
+
+/* ===== Contact CTA ===== */
+.contact{background:linear-gradient(90deg, rgba(31,111,235,0.06), rgba(14,165,233,0.02));border-radius:10px;padding:1rem;margin-top:1.25rem;text-align:center}
+
+@media (max-width:720px){
+	.hero{text-align:center;padding:1.1rem}
+	.project-card img{height:120px}
+}
+
+
